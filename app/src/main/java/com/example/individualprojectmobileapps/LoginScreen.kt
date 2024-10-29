@@ -32,7 +32,7 @@ import androidx.navigation.NavHostController
 fun LoginPage(navController: NavController) {
     var username by remember { mutableStateOf("") } // stores username input
     var password by remember { mutableStateOf("") } // stores password input
-    val areFieldsValid = nameIsValid(username) && nameIsValid(password) // checks if fields are valid for enabling login button
+    val areFieldsValid = nameIsValid(password) && Patterns.EMAIL_ADDRESS.matcher(username).matches() // checks if fields are valid for enabling login button
 
     Box(
         modifier = Modifier
@@ -63,7 +63,7 @@ fun LoginPage(navController: NavController) {
             )
             Spacer(modifier = Modifier.height(24.dp)) // adds space before buttons
             Button(
-                onClick = { navController.navigate("main_screen") }, // triggers successful login
+                onClick = { navController.navigate("rules_screen") }, // triggers successful login
                 enabled = areFieldsValid, // button is enabled only if fields are valid
                 modifier = Modifier.fillMaxWidth() // button fills the entire width
             ) {
@@ -73,6 +73,7 @@ fun LoginPage(navController: NavController) {
             Button(
                 onClick = { navController.navigate("registration_screen") }, // triggers registration page navigation
                 modifier = Modifier.fillMaxWidth() // button fills the entire width
+
             ) {
                 Text("Register") // button text
             }
