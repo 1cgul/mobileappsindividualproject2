@@ -30,8 +30,9 @@ fun RulesScreen(navController: NavController){
             verticalArrangement = Arrangement.Center,
             modifier = Modifier.padding(16.dp)
         ) {
-            Text("Rules of the game: Select or type the correct answer!")
+            Text("Rules of the game")
             Spacer(modifier = Modifier.height(16.dp))
+            Text("Select or type the correct answer!")
             Button(
                 onClick = { navController.navigate("main_screen")},
                 modifier = Modifier.fillMaxWidth()

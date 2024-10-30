@@ -19,7 +19,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun Navigation() {
     val navController= rememberNavController()
-    NavHost(navController = navController, startDestination = "splash_screen"  ){
+    NavHost(navController = navController, startDestination = "main_screen"  ){
         composable("splash_screen"
         ) {
             SplashScreen(navController)
